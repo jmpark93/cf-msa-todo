@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @CrossOrigin
-@RequestMapping("/")
+@RequestMapping("/todoapi")
 @RestController
 public class TodoController {
 
