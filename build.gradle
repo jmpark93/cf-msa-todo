@@ -19,9 +19,15 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    set('springBootAdminVersion', "2.2.3")
+    set('springCloudVersion', "Hoxton.SR5")
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
 
     compile("org.springframework.data:spring-data-rest-webmvc")
 
@@ -36,6 +42,13 @@ dependencies {
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "de.codecentric:spring-boot-admin-dependencies:${springBootAdminVersion}"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
 

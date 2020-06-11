@@ -5,10 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,5 +30,16 @@ public class TodoController {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
+    }
+
+    @GetMapping("/todos/message")
+    @PreAuthorize("hasRole('ADMIN')")
+    public String message() {
+        return "Secret Message ...";
+    }
+
+    @PostMapping("/todos/message")
+    public String createMessage(@RequestBody String message) {
+        return String.format("Message was created ... Content: %s", message);
     }
 }
