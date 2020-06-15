@@ -15,7 +15,7 @@ spring:
 
   cloud:
     config:
-      uri: https://msa-config.cf.intl
+      uri: http://msa-config.cf.intl
 
 ---
 spring:
