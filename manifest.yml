@@ -1,15 +1,14 @@
 ---
 applications:
-  - name: cf-legacy-api
+  - name: cf-msa-todo
     memory: 1G
     instances: 1
     buildpacks:
       - java_buildpack
-    path: build/libs/todoapi-0.0.1-SNAPSHOT.jar
+    path: ./build/libs/todoapi-0.0.1-SNAPSHOT.jar
     env:
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+}}'
-    services:
-      - legtodo-default
+      SPRING_PROFILES_ACTIVE: dev
     routes:
-#      - route: legtodo-api.kpaasta.io
-      - route: legtodo-api.cf.intl
+      - route: msa-todo.kpaasta.io
+      - route: msa-todo.cf.intl

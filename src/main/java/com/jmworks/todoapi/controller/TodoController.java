@@ -33,7 +33,7 @@ public class TodoController {
     }
 
     @GetMapping("/todos/message")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('USER')")
     public String message() {
         return "Secret Message ...";
     }
