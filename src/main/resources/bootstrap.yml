@@ -29,17 +29,23 @@ spring:
     hibernate:
       ddl-auto: update
 
-  h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
+#  h2:
+#    console:
+#      enabled: true
+#      settings:
+#        web-allow-others: true
 
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:todo
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/todo?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
     username: todo
     password: koscom
+
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:todo
+#    username: todo
+#    password: koscom
 
 security:
   swagger:

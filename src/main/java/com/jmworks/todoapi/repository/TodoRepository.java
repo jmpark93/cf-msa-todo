@@ -12,7 +12,11 @@ import java.util.List;
 @RepositoryRestResource
 public interface TodoRepository extends PagingAndSortingRepository<Todo, Long> {
 
-    List<Todo> findByIsDone(@Param("isDone") boolean isDone);
+    List<Todo> findByUserIDAndIsDone(@Param("userID") Long userID, @Param("isDone") boolean isDone);
+
+    List<Todo> findByUserID(@Param("userID") Long userID);
+
+    void deleteAllByUserID(@Param("userID") Long userID);
 
 //    @Override
 //    @RestResource(exported = true)

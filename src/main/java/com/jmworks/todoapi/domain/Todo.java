@@ -14,6 +14,9 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private Long userID;
+
     private String todoItem;
 
     @Column(columnDefinition = "boolean default false")
@@ -58,5 +61,13 @@ public class Todo {
 
     public void setIsDone(boolean isDone) {
         this.isDone = isDone;
+    }
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
 }

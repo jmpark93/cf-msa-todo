@@ -22,7 +22,7 @@ public class RepositoryRestConfig implements RepositoryRestConfigurer {
                 .map(Type::getJavaType)
                 .toArray(Class[]::new));
 
-        config.setBasePath("/todoapi");
+        config.setBasePath("/api");
 //        config.setReturnBodyOnCreate(true);
 //        config.setReturnBodyOnUpdate(true);
 
